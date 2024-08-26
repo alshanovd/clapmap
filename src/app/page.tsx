@@ -1,41 +1,42 @@
-'use client';
+"use client";
 
-import { Section, Cell, Image, List } from '@telegram-apps/telegram-ui';
+import { FaMapMarkerAlt } from "react-icons/fa";
 
-import { Link } from '@/components/Link/Link';
-
-import tonSvg from './_assets/ton.svg';
+import { Button } from "@mui/material";
+import { initBackButton, initMainButton } from "@telegram-apps/sdk-react";
+import { APIProvider, Map } from "@vis.gl/react-google-maps";
+import { useEffect } from "react";
 
 export default function Home() {
+  const [mainButton] = initMainButton();
+  const [bb] = initBackButton();
+
+  useEffect(() => {
+    bb.hide();
+  }, [bb]);
+
   return (
-    <List>
-      <Section
-        header='Features'
-        footer='You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects'
-      >
-        <Link href='/ton-connect'>
-          <Cell
-            before={<Image src={tonSvg.src} style={{ backgroundColor: '#007AFF' }}/>}
-            subtitle='Connect your TON wallet'
-          >
-            TON Connect
-          </Cell>
-        </Link>
-      </Section>
-      <Section
-        header='Application Launch Data'
-        footer='These pages help developer to learn more about current launch information'
-      >
-        <Link href='/init-data'>
-          <Cell subtitle='User data, chat information, technical data'>Init Data</Cell>
-        </Link>
-        <Link href='/launch-params'>
-          <Cell subtitle='Platform identifier, Mini Apps version, etc.'>Launch Parameters</Cell>
-        </Link>
-        <Link href='/theme-params'>
-          <Cell subtitle='Telegram application palette information'>Theme Parameters</Cell>
-        </Link>
-      </Section>
-    </List>
+    <APIProvider apiKey="AIzaSyC_B70hcVabYizy0cj5jkSSSwChYOE3pMs">
+      <Map
+        style={{ width: "100vw", height: "80vh" }}
+        defaultCenter={{ lat: 22.54992, lng: 0 }}
+        defaultZoom={3}
+        gestureHandling={"greedy"}
+        disableDefaultUI={true}
+      />
+
+      <div className="w-full px-5 mt-5 flex justify-center">
+        <Button
+          variant="contained"
+          onClick={() => mainButton.show()}
+          size="large"
+          startIcon={<FaMapMarkerAlt />}
+          fullWidth={true}
+          href="/newclap"
+        >
+          New Clap
+        </Button>
+      </div>
+    </APIProvider>
   );
 }

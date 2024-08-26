@@ -1,24 +1,24 @@
 "use client";
 
-import { type PropsWithChildren, useEffect, useMemo, useState } from "react";
 import {
+  bindMiniAppCSSVars,
+  bindThemeParamsCSSVars,
+  bindViewportCSSVars,
   SDKProvider,
   useLaunchParams,
   useMiniApp,
   useThemeParams,
   useViewport,
-  bindMiniAppCSSVars,
-  bindThemeParamsCSSVars,
-  bindViewportCSSVars,
 } from "@telegram-apps/sdk-react";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
-import { AppRoot } from "@telegram-apps/telegram-ui";
+import { type PropsWithChildren, useEffect, useMemo } from "react";
 
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { ErrorPage } from "@/components/ErrorPage";
-import { useTelegramMock } from "@/hooks/useTelegramMock";
 import { useDidMount } from "@/hooks/useDidMount";
+import { useTelegramMock } from "@/hooks/useTelegramMock";
 
+import { AppRoot } from "@telegram-apps/telegram-ui";
 import "./styles.css";
 
 function App(props: PropsWithChildren) {
