@@ -2,9 +2,9 @@
 import { Button } from "@mui/material";
 import { useBackButton } from "@telegram-apps/sdk-react";
 import { useRouter } from "next/navigation";
-import { PropsWithChildren, useEffect } from "react";
+import { useEffect } from "react";
 
-export default function NewClap({ children }: PropsWithChildren) {
+export default function NewClap() {
   const backButton = useBackButton();
   const router = useRouter();
   useEffect(() => {
