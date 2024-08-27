@@ -19,7 +19,6 @@ import { useDidMount } from "@/hooks/useDidMount";
 import { useTelegramMock } from "@/hooks/useTelegramMock";
 
 import { AppRoot } from "@telegram-apps/telegram-ui";
-import "./styles.css";
 
 function App(props: PropsWithChildren) {
   const lp = useLaunchParams();
