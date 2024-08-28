@@ -7,9 +7,10 @@ import "@telegram-apps/telegram-ui/dist/styles.css";
 import "normalize.css/normalize.css";
 import "./_assets/globals.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata & any = {
   title: "Your Application Title Goes Here",
   description: "Your application description goes here",
+  "ngrok-skip-browser-warning": "69420",
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {

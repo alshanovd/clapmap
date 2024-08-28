@@ -5,3 +5,7 @@
 body {
   background: var(--tg-theme-secondary-bg-color, white);
 }
+
+.gm-style iframe + div {
+  border: none !important;
+}

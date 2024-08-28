@@ -18,7 +18,8 @@ import { ErrorPage } from "@/components/ErrorPage";
 import { useDidMount } from "@/hooks/useDidMount";
 import { useTelegramMock } from "@/hooks/useTelegramMock";
 
-import { AppRoot } from "@telegram-apps/telegram-ui";
+import { AppRoot, Spinner } from "@telegram-apps/telegram-ui";
+import { Box, LinearProgress } from "@mui/material";
 
 function App(props: PropsWithChildren) {
   const lp = useLaunchParams();
@@ -88,6 +89,8 @@ export function Root(props: PropsWithChildren) {
       <RootInner {...props} />
     </ErrorBoundary>
   ) : (
-    <div className="root__loading">Loading</div>
+    <Box sx={{ width: "100%", margin: "50% 40px" }}>
+      <LinearProgress />
+    </Box>
   );
 }
