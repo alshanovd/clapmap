@@ -1,4 +1,4 @@
-export interface Point {
+export interface Marker {
     id: string;
     coordinate: Coordinates;
 }
@@ -8,7 +8,12 @@ export interface Coordinates {
     latitude: number;
 }
 
-export interface MapPayload {
+export interface MarkersPayload {
     error: any;
-    payload: Point[];
+    payload: Marker[];
+}
+
+export interface MarkerPayload {
+    error: any;
+    payload: Marker;
 }
